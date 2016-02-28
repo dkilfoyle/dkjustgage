@@ -1,0 +1,9 @@
+dependencies:
+- name: raphael
+  version: 2.1.4
+  src: htmlwidgets/lib/raphael
+  script: raphael.js
+- name: justgage-toorshia
+  version: 1.2.2
+  src: htmlwidgets/lib/justgage-toorshia
+  script: justgage.js
