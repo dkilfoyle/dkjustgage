@@ -5,7 +5,7 @@
 #' @import htmlwidgets
 #'
 #' @export
-dkjustgage <- function(value=5, min=0, max=100, title="", label="", reverse=F, symbol="", target='', width = NULL, height = NULL) {
+dkjustgage <- function(value=5, min=0, max=100, title="", label="", reverse=F, symbol="", target=NULL, width = NULL, height = NULL) {
 
   # forward options using x
   x = list(

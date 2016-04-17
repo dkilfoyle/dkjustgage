@@ -7,13 +7,12 @@ HTMLWidgets.widget({
   factory: function(el, width, height) {
 
     var id = el.id;
+    var g;
 
     return {
       renderValue: function(x) {
-        // TODO: code to render the widget, e.g.
 
-        if (x.target) {
-          var g = new JustGage({
+        var config = {
             id: id,
             value: x.value,
             min: x.min,
@@ -22,8 +21,11 @@ HTMLWidgets.widget({
             label: x.label,
             symbol: x.symbol,
             reverse: x.reverse,
-            relativeGaugeSize: true,
-            customSectors: [{
+            relativeGaugeSize: true
+        };
+
+        if (x.target !== null)
+          config.customSectors = [{
               color : "#ff0000",
               lo: x.min,
               hi: x.target
@@ -32,27 +34,29 @@ HTMLWidgets.widget({
               lo: x.target,
               hi: x.max
             }]
-          });
-        }
+
+        if (g)
+          g.refresh(x.value, x.max, config);
         else
         {
-          var g = new JustGage({
-            id: id,
-            value: x.value,
-            min: x.min,
-            max: x.max,
-            title: x.title,
-            label: x.label,
-            symbol: x.symbol,
-            reverse: x.reverse,
-            relativeGaugeSize: true,
-
-          });
+          g = new JustGage(config);
+          var tab = $(el).closest('div.tab-pane');
+          if (tab !== null) {
+            var tabID = tab.attr('id');
+            var tabAnchor = $('a[data-toggle="tab"][href="#' + tabID + '"]');
+            if (tabAnchor !== null) {
+              tabAnchor.on('shown.bs.tab', function() {
+                g.refresh(0, x.max, { refreshAnimationTime: 0, onAnimationEnd: function() {
+                  g.refresh(x.value, x.max, { refreshAnimationTime: 700, onAnimationEnd: null });
+                }});
+              });
+            }
+          }
         }
       },
 
       resize: function(width, height) {
-        //g.refresh(g.config.value);
+        //console.log("resizing");
       }
 
     };

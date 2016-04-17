@@ -1,0 +1,52 @@
+---
+title: "Flex Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+<!-- Learn more about flexdashboard at https://rstudio.github.io/flexdashboard -->
+
+
+```{r setup, include=FALSE}
+# Load packages and initialize data here
+library(flexdashboard)
+library(dkjustgage)
+```
+
+Page 1
+==================
+
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+dkjustgage(50, 0, 100, "Target < 7d")
+```
+
+
+
+
+Page 2
+========================
+
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+dkjustgage(50, 0, 100, target=75, "Target < 7d")
+```
+
+### Chart C
+
+```{r}
+# Code for Chart C
+```
+
