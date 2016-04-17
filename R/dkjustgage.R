@@ -1,6 +1,14 @@
-#' <Add Title>
+#' HTMLWidget wrapper for justgage
 #'
-#' <Add Description>
+#' Radial gage
+#'
+#' @param value Gage value
+#' @param min,max Gage limits
+#' @param label Text label below the gage
+#' @param title Title above gage
+#' @param reverse True to reverse color gradient
+#' @param symbol Postfix a symbol to the value label eg \code{'\%'}
+#' @param target Set a traffice light target value to acheive, red if below, green if above
 #'
 #' @import htmlwidgets
 #'
