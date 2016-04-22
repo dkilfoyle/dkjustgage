@@ -1,6 +1,6 @@
 #' HTMLWidget wrapper for justgage
 #'
-#' Radial gage
+#' Radial gage widget
 #'
 #' @param value Gage value
 #' @param min,max Gage limits
@@ -9,9 +9,8 @@
 #' @param reverse True to reverse color gradient
 #' @param symbol Postfix a symbol to the value label eg \code{'\%'}
 #' @param target Set a traffice light target value to acheive, red if below, green if above
-#'
-#' @import htmlwidgets
-#'
+#' @examples
+#' dkjustgage(50,0,100,title="speed")
 #' @export
 dkjustgage <- function(value=5,
   min=0,
@@ -21,7 +20,7 @@ dkjustgage <- function(value=5,
   reverse=F,
   symbol="",
   target=NULL,
-  width = NULL,
+  # width = NULL,
   height = NULL) {
 
   # forward options using x

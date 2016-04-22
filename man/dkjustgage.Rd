@@ -15,7 +15,7 @@ dkjustgage(value = 5, min = 0, max = 100, title = "", label = "",
 
 \item{title}{Title above gage}
 
-\item{label}{Text label below the gage}
+\item{label}{Text label below the gage eg units}
 
 \item{reverse}{True to reverse color gradient}
 
@@ -24,6 +24,9 @@ dkjustgage(value = 5, min = 0, max = 100, title = "", label = "",
 \item{target}{Set a traffice light target value to acheive, red if below, green if above}
 }
 \description{
-Radial gage
+Radial gage widget
+}
+\examples{
+dkjustgage(50,0,100,title="speed")
 }
 

@@ -2,7 +2,7 @@ Package: dkjustgage
 Title: JustGage wrapper
 Version: 0.0.0.9000
 Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Description: htmlwidget for justgage
 Depends:
     R (>= 3.2.3)
 License: What license is it under?
