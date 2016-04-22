@@ -4,7 +4,7 @@
 #'
 #' @param value Gage value
 #' @param min,max Gage limits
-#' @param label Text label below the gage
+#' @param label Text label below the gage eg units
 #' @param title Title above gage
 #' @param reverse True to reverse color gradient
 #' @param symbol Postfix a symbol to the value label eg \code{'\%'}
@@ -13,7 +13,16 @@
 #' @import htmlwidgets
 #'
 #' @export
-dkjustgage <- function(value=5, min=0, max=100, title="", label="", reverse=F, symbol="", target=NULL, width = NULL, height = NULL) {
+dkjustgage <- function(value=5,
+  min=0,
+  max=100,
+  title="",
+  label="",
+  reverse=F,
+  symbol="",
+  target=NULL,
+  width = NULL,
+  height = NULL) {
 
   # forward options using x
   x = list(
