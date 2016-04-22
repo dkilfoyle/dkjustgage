@@ -22,7 +22,7 @@ Column
 ### Chart A
 
 ```{r}
-dkjustgage(50, 0, 100, "Test 1")
+dkjustgage(75, 0, 100, "Speed", "km/hr")
 ```
 
 
