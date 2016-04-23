@@ -20,7 +20,7 @@ dkjustgage <- function(value=5,
   reverse=F,
   symbol="",
   target=NULL,
-  # width = NULL,
+  width = NULL,
   height = NULL) {
 
   # forward options using x
