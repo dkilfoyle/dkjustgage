@@ -5,8 +5,7 @@
 \title{HTMLWidget wrapper for justgage}
 \usage{
 dkjustgage(value = 5, min = 0, max = 100, title = "", label = "",
-  reverse = F, symbol = "", target = NULL, width = NULL,
-  height = NULL)
+  reverse = F, symbol = "", target = NULL, height = NULL)
 }
 \arguments{
 \item{value}{Gage value}
