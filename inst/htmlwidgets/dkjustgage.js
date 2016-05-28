@@ -21,11 +21,14 @@ HTMLWidgets.widget({
             label: x.label,
             symbol: x.symbol,
             reverse: x.reverse,
-            relativeGaugeSize: true
+            relativeGaugeSize: true,
+            pointer: x.pointer
         };
 
-        if (x.target !== null)
-          config.customSectors = [{
+        x.id = id;
+
+        if (x.target !== null) {
+          x.customSectors = [{
               color : "#ff0000",
               lo: x.min,
               hi: x.target
@@ -33,13 +36,21 @@ HTMLWidgets.widget({
               color: "#00ff00",
               lo: x.target,
               hi: x.max
-            }]
+            }];
+
+          x.targetPointerOptions = {
+            toplength: 0,
+            bottomlength: -40,
+            bottomwidth:8,
+            color: '#8e8e93'
+          };
+        }
 
         if (g)
-          g.refresh(x.value, x.max, config);
+          g.refresh(x.value, x.max, x);
         else
         {
-          g = new JustGage(config);
+          g = new JustGage(x);
           var tab = $(el).closest('div.tab-pane');
           if (tab !== null) {
             var tabID = tab.attr('id');

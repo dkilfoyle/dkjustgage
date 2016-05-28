@@ -4,9 +4,8 @@
 \alias{dkjustgage}
 \title{HTMLWidget wrapper for justgage}
 \usage{
-dkjustgage(value = 5, min = 0, max = 100, title = "", label = "",
-  reverse = F, symbol = "", target = NULL, width = NULL,
-  height = NULL)
+dkjustgage(value = 5, min = 0, max = 100, title = "", width = NULL,
+  height = NULL, options = list())
 }
 \arguments{
 \item{value}{Gage value}

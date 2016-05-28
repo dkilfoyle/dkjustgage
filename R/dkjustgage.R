@@ -16,29 +16,21 @@ dkjustgage <- function(value=5,
   min=0,
   max=100,
   title="",
-  label="",
-  reverse=F,
-  symbol="",
-  target=NULL,
   width = NULL,
-  height = NULL) {
+  height = NULL,
+  options = list()) {
 
   # forward options using x
-  x = list(
-    value = value,
-    min = min,
-    max = max,
-    label = label,
-    title = title,
-    reverse = reverse,
-    symbol = symbol,
-    target = target
-  )
+  options$value= value
+  options$min = min
+  options$max = max
+  options$title = title
+  options$relativeGaugeSize = TRUE
 
   # create widget
   htmlwidgets::createWidget(
     name = 'dkjustgage',
-    x,
+    options,
     width = width,
     height = height,
     package = 'dkjustgage'
