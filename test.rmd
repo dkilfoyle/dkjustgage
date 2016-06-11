@@ -22,7 +22,7 @@ Column
 ### Chart 1
 
 ```{r}
-dkjustgage(50, 0, 100, "Target Test", options=list(target=75, targetPointer=T))
+dkjustgage(85, 0, 100, "Target Test", target=75)
 ```
 
 

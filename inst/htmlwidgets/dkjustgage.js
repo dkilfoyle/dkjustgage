@@ -14,27 +14,6 @@ HTMLWidgets.widget({
 
         x.id = id;
 
-        if (x.target !== null & x.customSectors == null) {
-          x.customSectors = [{
-              color : "#ff0000",
-              lo: x.min,
-              hi: x.target
-            }, {
-              color: "#00ff00",
-              lo: x.target,
-              hi: x.max
-            }];
-        }
-
-          // load some default target pointer options
-        if (x.targetPointerOptions == null)
-          x.targetPointerOptions = {
-            toplength: 0,
-            bottomlength: -40,
-            bottomwidth:8,
-            color: '#8e8e93'
-          };
-
         if (g)
           g.refresh(x.value, x.max, x);
         else

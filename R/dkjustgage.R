@@ -12,13 +12,15 @@
 #' @examples
 #' dkjustgage(50,0,100,title="speed")
 #' @export
-dkjustgage <- function(value=5,
-  min=0,
-  max=100,
-  title="",
+dkjustgage <- function(value,
+  min = 0,
+  max = 100,
+  title = "",
   width = NULL,
   height = NULL,
   cutoffs = NULL,
+  target = NULL,
+  targetPointer = T,
   cutoffColors = c("#a9d70b", "#f9c802","#ff0000"),
   options = list()) {
 
@@ -28,12 +30,33 @@ dkjustgage <- function(value=5,
   options$title = title
   options$relativeGaugeSize = TRUE
 
+  # if cutoffs supplied then defined custom sectors
   if (!is.null(cutoffs)) {
     options$customSectors = list(
       list(color=cutoffColors[1], lo=min, hi=cutoffs[1]),
       list(color=cutoffColors[2], lo=cutoffs[1], hi=cutoffs[2]),
       list(color=cutoffColors[3], lo=cutoffs[2], hi=max))
   }
+
+  # if target supplied and custom sectors not set yet then define custom sectors
+  if (!is.null(target) & is.null(options$customSectors)) {
+    options$target = target
+    options$targetPointer = targetPointer
+    options$customSectors = list(
+      list(color="#ff0000", lo=min, hi=target-0.001),
+      list(color="#f9c802", lo=target, hi=target+(max-target)*0.1),
+      list(color="#a9d70b", lo=target+(max-target)*0.1, hi=max)
+    )
+  }
+
+  # load some default target pointer options
+  if (is.null(options$targetPointerOptions))
+    options$targetPointerOptions = list(
+      toplength = 0,
+      bottomlength = -40,
+      bottomwidth = 8,
+      color = '#8e8e93'
+    )
 
   # create widget
   htmlwidgets::createWidget(
