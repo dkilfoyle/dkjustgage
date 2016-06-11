@@ -24,15 +24,16 @@ HTMLWidgets.widget({
               lo: x.target,
               hi: x.max
             }];
+        }
 
           // load some default target pointer options
+        if (x.targetPointerOptions == null)
           x.targetPointerOptions = {
             toplength: 0,
-            bottomlength: -90,
-            bottomwidth:12,
+            bottomlength: -40,
+            bottomwidth:8,
             color: '#8e8e93'
           };
-        }
 
         if (g)
           g.refresh(x.value, x.max, x);
