@@ -12,14 +12,14 @@ library(flexdashboard)
 library(dkjustgage)
 ```
 
-Page 2
+Page 1
 ========================
 
 
 Column 
 -----------------------------------------------------------------------
 
-### Chart B
+### Chart 1
 
 ```{r}
 dkjustgage(50, 0, 100, "Target Test", options=list(target=75, targetPointer=T))
@@ -27,7 +27,7 @@ dkjustgage(50, 0, 100, "Target Test", options=list(target=75, targetPointer=T))
 
 
 
-Page 1
+Page 2
 ==================
 
 
@@ -37,7 +37,7 @@ Column
 ### Chart A
 
 ```{r}
-dkjustgage(75, 0, 100, "Speed", options=list(label="km/hr"))
+dkjustgage(75, 0, 100, "Speed", cutoffs=c(5,85))
 ```
 
 

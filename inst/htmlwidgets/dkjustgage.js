@@ -12,22 +12,9 @@ HTMLWidgets.widget({
     return {
       renderValue: function(x) {
 
-        var config = {
-            id: id,
-            value: x.value,
-            min: x.min,
-            max: x.max,
-            title: x.title,
-            label: x.label,
-            symbol: x.symbol,
-            reverse: x.reverse,
-            relativeGaugeSize: true,
-            pointer: x.pointer
-        };
-
         x.id = id;
 
-        if (x.target !== null) {
+        if (x.target !== null & x.customSectors == null) {
           x.customSectors = [{
               color : "#ff0000",
               lo: x.min,
@@ -38,10 +25,11 @@ HTMLWidgets.widget({
               hi: x.max
             }];
 
+          // load some default target pointer options
           x.targetPointerOptions = {
             toplength: 0,
-            bottomlength: -40,
-            bottomwidth:8,
+            bottomlength: -90,
+            bottomwidth:12,
             color: '#8e8e93'
           };
         }

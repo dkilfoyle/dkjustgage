@@ -18,14 +18,22 @@ dkjustgage <- function(value=5,
   title="",
   width = NULL,
   height = NULL,
+  cutoffs = NULL,
+  cutoffColors = c("#a9d70b", "#f9c802","#ff0000"),
   options = list()) {
 
-  # forward options using x
   options$value= value
   options$min = min
   options$max = max
   options$title = title
   options$relativeGaugeSize = TRUE
+
+  if (!is.null(cutoffs)) {
+    options$customSectors = list(
+      list(color=cutoffColors[1], lo=min, hi=cutoffs[1]),
+      list(color=cutoffColors[2], lo=cutoffs[1], hi=cutoffs[2]),
+      list(color=cutoffColors[3], lo=cutoffs[2], hi=max))
+  }
 
   # create widget
   htmlwidgets::createWidget(
