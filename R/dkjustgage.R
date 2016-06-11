@@ -39,14 +39,16 @@ dkjustgage <- function(value,
   }
 
   # if target supplied and custom sectors not set yet then define custom sectors
-  if (!is.null(target) & is.null(options$customSectors)) {
+  if (!is.null(target)) {
     options$target = target
     options$targetPointer = targetPointer
-    options$customSectors = list(
-      list(color="#ff0000", lo=min, hi=target-0.001),
-      list(color="#f9c802", lo=target, hi=target+(max-target)*0.1),
-      list(color="#a9d70b", lo=target+(max-target)*0.1, hi=max)
-    )
+    if (is.null(options$customSectors)) {
+      options$customSectors = list(
+        list(color="#ff0000", lo=min, hi=target-0.001),
+        list(color="#f9c802", lo=target, hi=target+(max-target)*0.1),
+        list(color="#a9d70b", lo=target+(max-target)*0.1, hi=max)
+      )
+    }
   }
 
   # load some default target pointer options
