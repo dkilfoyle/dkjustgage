@@ -9,6 +9,8 @@
 #' @param reverse True to reverse color gradient
 #' @param symbol Postfix a symbol to the value label eg \code{'\%'}
 #' @param target Set a traffice light target value to acheive, red if below, green if above
+#' @param cutoffs An array of two numbers indicating the boundary between low-medium and medium-high
+#' @param cutoffColos An array of three colors for low, medium and high
 #' @examples
 #' dkjustgage(50,0,100,title="speed")
 #' @export
