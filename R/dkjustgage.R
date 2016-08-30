@@ -11,6 +11,7 @@
 #' @param target Set a traffice light target value to acheive, red if below, green if above
 #' @param cutoffs An array of two numbers indicating the boundary between low-medium and medium-high
 #' @param cutoffColos An array of three colors for low, medium and high
+#' @param highIsGood If true colors range from red to green instead of green to red
 #' @examples
 #' dkjustgage(50,0,100,title="speed")
 #' @export
@@ -23,8 +24,14 @@ dkjustgage <- function(value,
   cutoffs = NULL,
   target = NULL,
   targetPointer = T,
-  cutoffColors = c("#a9d70b", "#f09030","#ff0000"),
+  cutoffColors = NULL,
+  highIsGood = F,
   options = list()) {
+
+  if (highIsGood & is.null(cutoffColors))
+    cutoffColors = c("#ff0000", "#f09030","#a9d70b")
+  else
+    cutoffColors = c("#a9d70b", "#f09030","#ff0000")
 
   options$value= value
   options$min = min
