@@ -23,7 +23,7 @@ dkjustgage <- function(value,
   cutoffs = NULL,
   target = NULL,
   targetPointer = T,
-  cutoffColors = c("#a9d70b", "#f9c802","#ff0000"),
+  cutoffColors = c("#a9d70b", "#f09030","#ff0000"),
   options = list()) {
 
   options$value= value
